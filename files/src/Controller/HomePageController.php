@@ -1,5 +1,6 @@
 <?php
-declare (strict_types=1);
+
+declare(strict_types=1);
 
 namespace App\Controller;
 
@@ -9,7 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class HomePageController
 {
-    #[Route('/', name:'home_page')]
+    #[Route('/', name: 'home_page')]
     public function index(Request $request): Response
     {
         return new Response('<html><body> Prima </body></html>');
