@@ -1,0 +1,248 @@
+/Users/vittoriodedi/.zprofile:7: no such file or directory: /opt/homebrew/bin/brew
+vittoriodedi@MacBook labingsoft % make start
+docker compose up -d
+[+] Running 2/2
+ ✔ Container labingsoft-db-1   Running                                                                                                                                                          0.0s 
+ ✔ Container labingsoft-web-1  Running                                                                                                                                                          0.0s 
+vittoriodedi@MacBook labingsoft % make shell
+docker compose exec -itu $(id -u):$(id -g) web bash
+www-data@bc5c5ad15ea3:/var/www/files$ touch .dev
+www-data@bc5c5ad15ea3:/var/www/files$ composer install --dev
+You are using the deprecated option "--dev". It has no effect and will break in Composer 3.
+Installing dependencies from lock file (including require-dev)
+Verifying lock file contents can be installed on current platform.
+Package operations: 31 installs, 0 updates, 0 removals
+  - Downloading symfony/flex (v2.5.0)
+  - Downloading symfony/runtime (v6.4.14)
+  - Downloading psr/cache (3.0.0)
+  - Downloading symfony/cache-contracts (v3.5.1)
+  - Downloading symfony/polyfill-mbstring (v1.31.0)
+  - Downloading symfony/polyfill-intl-normalizer (v1.31.0)
+  - Downloading symfony/polyfill-intl-grapheme (v1.31.0)
+  - Downloading symfony/string (v6.4.15)
+  - Downloading symfony/deprecation-contracts (v3.5.1)
+  - Downloading psr/container (2.0.2)
+  - Downloading symfony/service-contracts (v3.5.1)
+  - Downloading symfony/console (v6.4.17)
+  - Downloading symfony/dotenv (v6.4.16)
+  - Downloading psr/event-dispatcher (1.0.0)
+  - Downloading symfony/event-dispatcher-contracts (v3.5.1)
+  - Downloading symfony/routing (v6.4.18)
+  - Downloading symfony/polyfill-php83 (v1.31.0)
+  - Downloading symfony/http-foundation (v6.4.18)
+  - Downloading symfony/event-dispatcher (v6.4.13)
+  - Downloading symfony/var-dumper (v6.4.18)
+  - Downloading psr/log (3.0.2)
+  - Downloading symfony/error-handler (v6.4.19)
+  - Downloading symfony/http-kernel (v6.4.19)
+  - Downloading symfony/finder (v6.4.17)
+  - Downloading symfony/filesystem (v6.4.13)
+  - Downloading symfony/var-exporter (v6.4.19)
+  - Downloading symfony/dependency-injection (v6.4.19)
+  - Downloading symfony/config (v6.4.14)
+  - Downloading symfony/cache (v6.4.19)
+  - Downloading symfony/framework-bundle (v6.4.19)
+  - Downloading symfony/yaml (v6.4.18)
+  - Installing symfony/flex (v2.5.0): Extracting archive
+  - Installing symfony/runtime (v6.4.14): Extracting archive
+  - Installing psr/cache (3.0.0): Extracting archive
+  - Installing symfony/cache-contracts (v3.5.1): Extracting archive
+  - Installing symfony/polyfill-mbstring (v1.31.0): Extracting archive
+  - Installing symfony/polyfill-intl-normalizer (v1.31.0): Extracting archive
+  - Installing symfony/polyfill-intl-grapheme (v1.31.0): Extracting archive
+  - Installing symfony/string (v6.4.15): Extracting archive
+  - Installing symfony/deprecation-contracts (v3.5.1): Extracting archive
+  - Installing psr/container (2.0.2): Extracting archive
+  - Installing symfony/service-contracts (v3.5.1): Extracting archive
+  - Installing symfony/console (v6.4.17): Extracting archive
+  - Installing symfony/dotenv (v6.4.16): Extracting archive
+  - Installing psr/event-dispatcher (1.0.0): Extracting archive
+  - Installing symfony/event-dispatcher-contracts (v3.5.1): Extracting archive
+  - Installing symfony/routing (v6.4.18): Extracting archive
+  - Installing symfony/polyfill-php83 (v1.31.0): Extracting archive
+  - Installing symfony/http-foundation (v6.4.18): Extracting archive
+  - Installing symfony/event-dispatcher (v6.4.13): Extracting archive
+  - Installing symfony/var-dumper (v6.4.18): Extracting archive
+  - Installing psr/log (3.0.2): Extracting archive
+  - Installing symfony/error-handler (v6.4.19): Extracting archive
+  - Installing symfony/http-kernel (v6.4.19): Extracting archive
+  - Installing symfony/finder (v6.4.17): Extracting archive
+  - Installing symfony/filesystem (v6.4.13): Extracting archive
+  - Installing symfony/var-exporter (v6.4.19): Extracting archive
+  - Installing symfony/dependency-injection (v6.4.19): Extracting archive
+  - Installing symfony/config (v6.4.14): Extracting archive
+  - Installing symfony/cache (v6.4.19): Extracting archive
+  - Installing symfony/framework-bundle (v6.4.19): Extracting archive
+  - Installing symfony/yaml (v6.4.18): Extracting archive
+Generating autoload files
+27 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+
+Run composer recipes at any time to see the status of your Symfony recipes.
+
+Executing script cache:clear [KO]
+ [KO]
+Script cache:clear returned with error code 255
+!!  
+!!  Fatal error: Uncaught Symfony\Component\Dotenv\Exception\PathException: Unable to read the "/var/www/files/.env" environment file. in /var/www/files/vendor/symfony/dotenv/Dotenv.php:553
+!!  Stack trace:
+!!  #0 /var/www/files/vendor/symfony/dotenv/Dotenv.php(106): Symfony\Component\Dotenv\Dotenv->doLoad(false, Array)
+!!  #1 /var/www/files/vendor/symfony/dotenv/Dotenv.php(149): Symfony\Component\Dotenv\Dotenv->loadEnv('/var/www/files/...', 'APP_ENV', 'dev', Array, false)
+!!  #2 /var/www/files/vendor/symfony/runtime/SymfonyRuntime.php(107): Symfony\Component\Dotenv\Dotenv->bootEnv('/var/www/files/...', 'dev', Array, false)
+!!  #3 /var/www/files/vendor/autoload_runtime.php(16): Symfony\Component\Runtime\SymfonyRuntime->__construct(Array)
+!!  #4 /var/www/files/bin/console(15): require_once('/var/www/files/...')
+!!  #5 {main}
+!!    thrown in /var/www/files/vendor/symfony/dotenv/Dotenv.php on line 553
+!!  PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\PathException: Unable to read the "/var/www/files/.env" environment file. in /var/www/files/vendor/symfony/dotenv/Dotenv.php:553
+!!  Stack trace:
+!!  #0 /var/www/files/vendor/symfony/dotenv/Dotenv.php(106): Symfony\Component\Dotenv\Dotenv->doLoad(false, Array)
+!!  #1 /var/www/files/vendor/symfony/dotenv/Dotenv.php(149): Symfony\Component\Dotenv\Dotenv->loadEnv('/var/www/files/...', 'APP_ENV', 'dev', Array, false)
+!!  #2 /var/www/files/vendor/symfony/runtime/SymfonyRuntime.php(107): Symfony\Component\Dotenv\Dotenv->bootEnv('/var/www/files/...', 'dev', Array, false)
+!!  #3 /var/www/files/vendor/autoload_runtime.php(16): Symfony\Component\Runtime\SymfonyRuntime->__construct(Array)
+!!  #4 /var/www/files/bin/console(15): require_once('/var/www/files/...')
+!!  #5 {main}
+!!    thrown in /var/www/files/vendor/symfony/dotenv/Dotenv.php on line 553
+!!  
+Script @auto-scripts was called via post-install-cmd
+www-data@bc5c5ad15ea3:/var/www/files$ composer install --dev
+You are using the deprecated option "--dev". It has no effect and will break in Composer 3.
+Installing dependencies from lock file (including require-dev)
+Verifying lock file contents can be installed on current platform.
+Nothing to install, update or remove
+Generating autoload files
+27 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+
+Run composer recipes at any time to see the status of your Symfony recipes.
+
+Executing script cache:clear [KO]
+ [KO]
+Script cache:clear returned with error code 255
+!!  
+!!  Fatal error: Uncaught Symfony\Component\Dotenv\Exception\PathException: Unable to read the "/var/www/files/.env" environment file. in /var/www/files/vendor/symfony/dotenv/Dotenv.php:553
+!!  Stack trace:
+!!  #0 /var/www/files/vendor/symfony/dotenv/Dotenv.php(106): Symfony\Component\Dotenv\Dotenv->doLoad(false, Array)
+!!  #1 /var/www/files/vendor/symfony/dotenv/Dotenv.php(149): Symfony\Component\Dotenv\Dotenv->loadEnv('/var/www/files/...', 'APP_ENV', 'dev', Array, false)
+!!  #2 /var/www/files/vendor/symfony/runtime/SymfonyRuntime.php(107): Symfony\Component\Dotenv\Dotenv->bootEnv('/var/www/files/...', 'dev', Array, false)
+!!  #3 /var/www/files/vendor/autoload_runtime.php(16): Symfony\Component\Runtime\SymfonyRuntime->__construct(Array)
+!!  #4 /var/www/files/bin/console(15): require_once('/var/www/files/...')
+!!  #5 {main}
+!!    thrown in /var/www/files/vendor/symfony/dotenv/Dotenv.php on line 553
+!!  PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\PathException: Unable to read the "/var/www/files/.env" environment file. in /var/www/files/vendor/symfony/dotenv/Dotenv.php:553
+!!  Stack trace:
+!!  #0 /var/www/files/vendor/symfony/dotenv/Dotenv.php(106): Symfony\Component\Dotenv\Dotenv->doLoad(false, Array)
+!!  #1 /var/www/files/vendor/symfony/dotenv/Dotenv.php(149): Symfony\Component\Dotenv\Dotenv->loadEnv('/var/www/files/...', 'APP_ENV', 'dev', Array, false)
+!!  #2 /var/www/files/vendor/symfony/runtime/SymfonyRuntime.php(107): Symfony\Component\Dotenv\Dotenv->bootEnv('/var/www/files/...', 'dev', Array, false)
+!!  #3 /var/www/files/vendor/autoload_runtime.php(16): Symfony\Component\Runtime\SymfonyRuntime->__construct(Array)
+!!  #4 /var/www/files/bin/console(15): require_once('/var/www/files/...')
+!!  #5 {main}
+!!    thrown in /var/www/files/vendor/symfony/dotenv/Dotenv.php on line 553
+!!  
+Script @auto-scripts was called via post-install-cmd
+www-data@bc5c5ad15ea3:/var/www/files$ ll
+bash: ll: command not found
+www-data@bc5c5ad15ea3:/var/www/files$ ls -l
+total 96
+drwxr-xr-x 3 www-data dialout     96 Mar 13 09:26 bin
+-rw-r--r-- 1 www-data dialout   1606 Mar 13 09:26 composer.json
+-rw-r--r-- 1 www-data dialout  88810 Mar 13 09:26 composer.lock
+drwxr-xr-x 8 www-data dialout    256 Mar 13 09:26 config
+drwxr-xr-x 3 www-data www-data    96 Mar 13 09:26 public
+drwxr-xr-x 4 www-data dialout    128 Mar 13 09:26 src
+-rw-r--r-- 1 www-data dialout   1619 Mar 13 09:26 symfony.lock
+drwxr-xr-x 8 www-data dialout    256 Mar 13 09:38 vendor
+www-data@bc5c5ad15ea3:/var/www/files$ ls -la
+total 100
+drwxr-xr-x 13 www-data www-data   416 Mar 13 09:38 .
+drwxr-xr-x 11 www-data www-data   352 Mar 13 09:27 ..
+-rw-r--r--  1 www-data dialout      0 Mar 13 09:38 .dev
+-rw-r--r--  1 www-data dialout      0 Mar 13 09:26 .env.dev
+-rw-r--r--  1 www-data dialout    189 Mar 13 09:26 .gitignore
+drwxr-xr-x  3 www-data dialout     96 Mar 13 09:26 bin
+-rw-r--r--  1 www-data dialout   1606 Mar 13 09:26 composer.json
+-rw-r--r--  1 www-data dialout  88810 Mar 13 09:26 composer.lock
+drwxr-xr-x  8 www-data dialout    256 Mar 13 09:26 config
+drwxr-xr-x  3 www-data www-data    96 Mar 13 09:26 public
+drwxr-xr-x  4 www-data dialout    128 Mar 13 09:26 src
+-rw-r--r--  1 www-data dialout   1619 Mar 13 09:26 symfony.lock
+drwxr-xr-x  8 www-data dialout    256 Mar 13 09:38 vendor
+www-data@bc5c5ad15ea3:/var/www/files$ chgrp -r www-data .
+chgrp: invalid option -- 'r'
+Try 'chgrp --help' for more information.
+www-data@bc5c5ad15ea3:/var/www/files$ chgrp -R www-data .
+www-data@bc5c5ad15ea3:/var/www/files$ composer install --dev
+You are using the deprecated option "--dev". It has no effect and will break in Composer 3.
+Installing dependencies from lock file (including require-dev)
+Verifying lock file contents can be installed on current platform.
+Nothing to install, update or remove
+Generating autoload files
+27 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+
+Run composer recipes at any time to see the status of your Symfony recipes.
+
+Executing script cache:clear [KO]
+ [KO]
+Script cache:clear returned with error code 255
+!!  
+!!  Fatal error: Uncaught Symfony\Component\Dotenv\Exception\PathException: Unable to read the "/var/www/files/.env" environment file. in /var/www/files/vendor/symfony/dotenv/Dotenv.php:553
+!!  Stack trace:
+!!  #0 /var/www/files/vendor/symfony/dotenv/Dotenv.php(106): Symfony\Component\Dotenv\Dotenv->doLoad(false, Array)
+!!  #1 /var/www/files/vendor/symfony/dotenv/Dotenv.php(149): Symfony\Component\Dotenv\Dotenv->loadEnv('/var/www/files/...', 'APP_ENV', 'dev', Array, false)
+!!  #2 /var/www/files/vendor/symfony/runtime/SymfonyRuntime.php(107): Symfony\Component\Dotenv\Dotenv->bootEnv('/var/www/files/...', 'dev', Array, false)
+!!  #3 /var/www/files/vendor/autoload_runtime.php(16): Symfony\Component\Runtime\SymfonyRuntime->__construct(Array)
+!!  #4 /var/www/files/bin/console(15): require_once('/var/www/files/...')
+!!  #5 {main}
+!!    thrown in /var/www/files/vendor/symfony/dotenv/Dotenv.php on line 553
+!!  PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\PathException: Unable to read the "/var/www/files/.env" environment file. in /var/www/files/vendor/symfony/dotenv/Dotenv.php:553
+!!  Stack trace:
+!!  #0 /var/www/files/vendor/symfony/dotenv/Dotenv.php(106): Symfony\Component\Dotenv\Dotenv->doLoad(false, Array)
+!!  #1 /var/www/files/vendor/symfony/dotenv/Dotenv.php(149): Symfony\Component\Dotenv\Dotenv->loadEnv('/var/www/files/...', 'APP_ENV', 'dev', Array, false)
+!!  #2 /var/www/files/vendor/symfony/runtime/SymfonyRuntime.php(107): Symfony\Component\Dotenv\Dotenv->bootEnv('/var/www/files/...', 'dev', Array, false)
+!!  #3 /var/www/files/vendor/autoload_runtime.php(16): Symfony\Component\Runtime\SymfonyRuntime->__construct(Array)
+!!  #4 /var/www/files/bin/console(15): require_once('/var/www/files/...')
+!!  #5 {main}
+!!    thrown in /var/www/files/vendor/symfony/dotenv/Dotenv.php on line 553
+!!  
+Script @auto-scripts was called via post-install-cmd
+www-data@bc5c5ad15ea3:/var/www/files$ ls -la
+total 100
+drwxr-xr-x 13 www-data www-data   416 Mar 13 09:38 .
+drwxr-xr-x 11 www-data www-data   352 Mar 13 09:27 ..
+-rw-r--r--  1 www-data www-data     0 Mar 13 09:38 .dev
+-rw-r--r--  1 www-data www-data     0 Mar 13 09:26 .env.dev
+-rw-r--r--  1 www-data www-data   189 Mar 13 09:26 .gitignore
+drwxr-xr-x  3 www-data www-data    96 Mar 13 09:26 bin
+-rw-r--r--  1 www-data www-data  1606 Mar 13 09:26 composer.json
+-rw-r--r--  1 www-data www-data 88810 Mar 13 09:26 composer.lock
+drwxr-xr-x  8 www-data www-data   256 Mar 13 09:26 config
+drwxr-xr-x  3 www-data www-data    96 Mar 13 09:26 public
+drwxr-xr-x  4 www-data www-data   128 Mar 13 09:26 src
+-rw-r--r--  1 www-data www-data  1619 Mar 13 09:26 symfony.lock
+drwxr-xr-x  8 www-data www-data   256 Mar 13 09:38 vendor
+www-data@bc5c5ad15ea3:/var/www/files$ chmod a+w .env
+chmod: cannot access '.env': No such file or directory
+www-data@bc5c5ad15ea3:/var/www/files$ touch .env    
+www-data@bc5c5ad15ea3:/var/www/files$ rm .dev
+www-data@bc5c5ad15ea3:/var/www/files$ composer install --dev
+You are using the deprecated option "--dev". It has no effect and will break in Composer 3.
+Installing dependencies from lock file (including require-dev)
+Verifying lock file contents can be installed on current platform.
+Nothing to install, update or remove
+Generating autoload files
+27 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+
+Run composer recipes at any time to see the status of your Symfony recipes.
+
+Executing script cache:clear [OK]
+Executing script assets:install public [OK]
+
+www-data@bc5c5ad15ea3:/var/www/files$ exit
+exit
+vittoriodedi@MacBook labingsoft % make start
+docker compose up -d
+[+] Running 2/2
+ ✔ Container labingsoft-web-1  Running                                                                                                                                                          0.0s 
+ ✔ Container labingsoft-db-1   Running                                                                                                                                                          0.0s 
+vittoriodedi@MacBook labingsoft % 
