@@ -1,3 +1,5 @@
+#qui ci sono tutti i comandi per il fix 13 marzo
+
 /Users/vittoriodedi/.zprofile:7: no such file or directory: /opt/homebrew/bin/brew
 vittoriodedi@MacBook labingsoft % make start
 docker compose up -d
