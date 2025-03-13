@@ -1,12 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block content %}
     {% if subject is not null %}
-        Ciao {{ subject }}
+        {{ 'greeting_%subject%' | trans({'%subject%': subject}) }}
     {% else %}
-
-        Questo è il nostro servizio web
-
+        {{'about.description' | trans}}
     {% endif %}
-
 {% endblock %}
