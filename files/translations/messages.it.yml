@@ -1,2 +1,5 @@
 about.description: Questa è la nostra applicazione web.
 greeting_%subject%: Ciao %subject%
+
+weather.description: Questa è la pagina del meteo.
+forecast_%state%_%city%: Ecco le previsioni del tempo per %city% (%state%)
