@@ -3,3 +3,9 @@ greeting_%subject%: Ciao %subject%
 
 weather.description: Questa è la pagina del meteo.
 forecast_%state%_%city%: Ecco le previsioni del tempo per %city% (%state%)
+
+navigation.home: Home
+navigation.about: About
+navigation.forecast: Forecast
+
+
