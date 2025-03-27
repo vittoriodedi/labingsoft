@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Entity\Location;
+use App\Repository\LocationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -20,25 +22,22 @@ class WeatherController extends AbstractController
         ],
     )]
 
-    public function index(?string $state = null, ?string $city = null): Response
-    {
+    public function index(
+        LocationRepository $repository,
+        ?string $state = null,
+        ?string $city = null
+    ): Response {
+        $location = $repository->findOneByName('perugia');
+        /** @var Location $location */
+        $forecasts = $location->getForecasts();
+        $forecast = reset($forecasts) ?: null;
+
         return $this->render(
             'weather/index.html.twig',
             [
                 'state' => $state,
                 'city' => $city,
-                'forecast' => [
-                    'day' => new \DateTimeImmutable('today'),
-                    'location' => [
-                        'name' => 'Perugia',
-                        'country' => 'IT',
-                    ],
-                    'shortDescription' => 'SUNNY',
-                    'minimumCelsiusTemperature' => 5,
-                    'maximumCelsiusTemperature' => 20,
-                    'windSpeedKmh' => 2,
-                    'humidityPercentage' => 0.30,
-                ],
+                'forecast' => $forecast,
             ]
         );
     }
